@@ -19,7 +19,7 @@ public class RestClient {
 	public static void main(String [] args ) throws IOException {
 		Client client = ClientBuilder.newClient(); 
 	
-		Calculation calc = new Calculation (1, "1 + 2 * 3") ;
+		Calculation calc = new Calculation (1, "1 + 2 * 3", 0);
 		
 		Gson gson = new GsonBuilder().create(); 
 
@@ -33,10 +33,10 @@ public class RestClient {
 		client.close(); 
 		
 		
-		DoubleEvaluator evaluator = new DoubleEvaluator(); 
-		String expression = "2 + 2 * 2"; 
-		Double result = evaluator.evaluate(expression);
-		System.out.println(expression + " = " + result); 
+		//DoubleEvaluator evaluator = new DoubleEvaluator(); 
+		//String expression = "2 + 2 * 2"; 
+		//Double result = evaluator.evaluate(expression);
+		//System.out.println(expression + " = " + result); 
 			
 	}
 	

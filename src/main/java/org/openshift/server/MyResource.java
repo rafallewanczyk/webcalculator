@@ -7,10 +7,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.google.gson.Gson; 
-import com.google.gson.GsonBuilder; 
-
 import org.openshift.calculations.Calculation;
+
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 
 @Path("test")
 public class MyResource {
@@ -28,8 +27,9 @@ public class MyResource {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Calculation test(Calculation calc) {
-		System.out.println("odebralem = " + calc); 
-		calc.increase(); 
+		DoubleEvaluator evaluator = new DoubleEvaluator(); 
+		calc.setResult(evaluator.evaluate(calc.getCommand()));
+		System.out.println(calc.getCommand() + " = " + calc.getResult());
 		return calc; 
 		
 	}
