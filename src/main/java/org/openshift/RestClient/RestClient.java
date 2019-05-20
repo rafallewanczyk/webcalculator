@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.openshift.calculations.Calculation;
 
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder; 
 
@@ -30,6 +31,12 @@ public class RestClient {
 		System.out.println(calc_ret);
 		response.close(); 
 		client.close(); 
+		
+		
+		DoubleEvaluator evaluator = new DoubleEvaluator(); 
+		String expression = "2 + 2 * 2"; 
+		Double result = evaluator.evaluate(expression);
+		System.out.println(expression + " = " + result); 
 			
 	}
 	
