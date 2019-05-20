@@ -1,14 +1,14 @@
 package org.openshift.RestClient;
 
-import org.openshift.calculations.Calculation;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+
+import org.openshift.calculations.Calculation;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder; 
@@ -17,16 +17,20 @@ public class RestClient {
 
 	public static void main(String [] args ) throws IOException {
 		Client client = ClientBuilder.newClient(); 
-		String response = client.target("http://localhost:8080/web-calculator/api/test").request(MediaType.TEXT_PLAIN).get(String.class);
-		System.out.println(response);
-		client.close(); 
-		
-		Calculation calc = new Calculation (1, "2 + 2 * 2") ;
-//		System.out.println(calc.toString()); 
+	
+		Calculation calc = new Calculation (1, "1 + 2 * 3") ;
 		
 		Gson gson = new GsonBuilder().create(); 
-		gson.toJson(calc, System.out);
-		
+
+		WebTarget target = client.target("http://localhost:8080/web-calculator/api/test/calc"); 
+		Response response = target.request("application/json").post(Entity.json(gson.toJson(calc)));
+		String responseString = response.readEntity(String.class);
+		System.out.println(responseString);
+		Calculation calc_ret = gson.fromJson(responseString, Calculation.class); 
+		System.out.println(calc_ret);
+		response.close(); 
+		client.close(); 
+			
 	}
 	
 }

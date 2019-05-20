@@ -13,6 +13,11 @@ public class Calculation {
 	public Calculation() {
 	}
 	
+	public void increase() {
+		id ++ ; 
+		command = "2 + 3 * 4"; 
+	}
+	
 	@Override 
 	public String toString(){
 		return (Integer.toString(id) + " : " + command); 

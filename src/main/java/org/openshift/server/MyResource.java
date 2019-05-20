@@ -29,6 +29,7 @@ public class MyResource {
 	@Produces("application/json")
 	public Calculation test(Calculation calc) {
 		System.out.println("odebralem = " + calc); 
+		calc.increase(); 
 		return calc; 
 		
 	}
