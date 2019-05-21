@@ -13,28 +13,30 @@ import org.openshift.calculations.Calculation;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder; 
 
-public class RestClient {
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.fxml.FXMLLoader;
 
-	public static void main(String [] args ) throws IOException {
-		Client client = ClientBuilder.newClient(); 
+public class RestClient extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Design.fxml"));
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
-		Calculation calc = new Calculation (1, "4 + 2 * 5", 0);
-		
-		Gson gson = new GsonBuilder().create(); 
-
-		WebTarget target = client.target("http://web-calc-web-calculator.1d35.starter-us-east-1.openshiftapps.com/api/test/calc"); 
-		Response response = target.request("application/json").post(Entity.json(gson.toJson(calc)));
-		String responseString = response.readEntity(String.class);
-		Calculation calc_ret = gson.fromJson(responseString, Calculation.class); 
-		System.out.println(calc_ret);
-		response.close(); 
-		client.close(); 
-		
-		
-		//DoubleEvaluator evaluator = new DoubleEvaluator(); 
-		//String expression = "2 + 2 * 2"; 
-		//Double result = evaluator.evaluate(expression);
-		//System.out.println(expression + " = " + result); 
+	public static void main(String [] args ) {
+		launch(args); 
 			
 	}
 	

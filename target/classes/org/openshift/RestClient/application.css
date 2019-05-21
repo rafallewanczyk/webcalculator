@@ -1,0 +1,14 @@
+.button {
+	-fx-background-color: #aeffd4;
+	-fx-border-color: #98b8fd; 
+}
+.textField {
+	-fx-background-color:#c1ffe8;
+	-fx-border-color: #98b8fd; 
+}
+.BorderPane{
+	-fx-background-color: #6fe1cd;
+}
+.FrameButtons {
+	-fx-background-color: #98e9f0; 
+}
