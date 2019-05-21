@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response;
 
 import org.openshift.calculations.Calculation;
 
-import com.fathzer.soft.javaluator.DoubleEvaluator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder; 
 
@@ -19,14 +18,13 @@ public class RestClient {
 	public static void main(String [] args ) throws IOException {
 		Client client = ClientBuilder.newClient(); 
 	
-		Calculation calc = new Calculation (1, "1 + 2 * 3", 0);
+		Calculation calc = new Calculation (1, "4 + 2 * 5", 0);
 		
 		Gson gson = new GsonBuilder().create(); 
 
-		WebTarget target = client.target("http://localhost:8080/web-calculator/api/test/calc"); 
+		WebTarget target = client.target("http://web-calc-web-calculator.1d35.starter-us-east-1.openshiftapps.com/api/test/calc"); 
 		Response response = target.request("application/json").post(Entity.json(gson.toJson(calc)));
 		String responseString = response.readEntity(String.class);
-		System.out.println(responseString);
 		Calculation calc_ret = gson.fromJson(responseString, Calculation.class); 
 		System.out.println(calc_ret);
 		response.close(); 
