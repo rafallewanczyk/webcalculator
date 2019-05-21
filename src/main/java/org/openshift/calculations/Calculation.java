@@ -20,6 +20,10 @@ public class Calculation {
 		return command; 
 	}
 	
+	public void setCommand(String Command) {
+		command = Command; 
+	}
+	
 	public void setResult(double Res) {
 		result = Res; 
 	}

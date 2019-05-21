@@ -29,6 +29,7 @@ public class MyResource {
 	public Calculation test(Calculation calc) {
 		DoubleEvaluator evaluator = new DoubleEvaluator(); 
 		calc.setResult(evaluator.evaluate(calc.getCommand()));
+		calc.setCommand(String.valueOf(calc.getResult()));
 		System.out.println(calc.getCommand() + " = " + calc.getResult());
 		return calc; 
 		

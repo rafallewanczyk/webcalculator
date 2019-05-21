@@ -54,7 +54,7 @@
               </rowConstraints>
                <children>
 
-                  <Button fx:id="AC" mnemonicParsing="false" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="AC" />
+                  <Button fx:id="AC" mnemonicParsing="false" onAction="#AC" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="AC" />
                   <Button fx:id="divide" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="/" GridPane.columnIndex="2" />
                   <Button fx:id="multiply" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="*" GridPane.columnIndex="3" />
                   <Button fx:id="minus" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
@@ -70,7 +70,7 @@
                   <Button fx:id="nine" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <Button fx:id="zero" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="300.0" text="0" GridPane.columnSpan="3" GridPane.rowIndex="4" />
                   <Button fx:id="comma" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Button fx:id="enter" mnemonicParsing="false" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="ENTER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="enter" mnemonicParsing="false" onAction="#Enter" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="ENTER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                   <Button fx:id="modulo" mnemonicParsing="false" onAction="#handleClick" prefHeight="72.0" prefWidth="150.0" styleClass="FrameButtons" stylesheets="@application.css" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="3" />
 
                   <GridPane prefHeight="72.0" prefWidth="72.0" GridPane.columnIndex="1">

@@ -1,30 +1,19 @@
 package org.openshift.RestClient;
 
-import java.io.IOException;
-
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
-
-import org.openshift.calculations.Calculation;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder; 
-
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 
 public class RestClient extends Application {
 
+	private FXMLLoader loader; 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Design.fxml"));
+			loader = new FXMLLoader(getClass().getResource("Design.fxml"));
+			BorderPane root = (BorderPane)loader.load(); 
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -38,6 +27,13 @@ public class RestClient extends Application {
 	public static void main(String [] args ) {
 		launch(args); 
 			
+	}
+	
+	@Override 
+	public void stop() {
+		System.out.println("koniec programu!!"); 
+		DesignController c = loader.getController(); 
+		c.end(); 
 	}
 	
 }
