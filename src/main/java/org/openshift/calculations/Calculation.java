@@ -42,7 +42,7 @@ public class Calculation {
 	
 	@Override 
 	public String toString(){
-		return (Integer.toString(id) + " : " + command + " = " + result); 
+		return (Integer.toString(error) + " : " + command + " = " + result); 
 		
 	}
 }
