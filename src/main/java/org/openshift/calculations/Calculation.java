@@ -2,12 +2,12 @@ package org.openshift.calculations;
 
 public class Calculation {
 
-	private int id; 
+	private int error; 
 	private String command; 
 	private double result; 
 	
-	public Calculation(int Id, String Command, double Result) {
-		id = Id; 
+	public Calculation(int Error, String Command, double Result) {
+		error = Error; 
 		command = Command; 
 		result = Result; 
 	}
@@ -32,6 +32,13 @@ public class Calculation {
 		return result; 
 	}
 	
+	public void setError(int e) {
+		error = e; 
+	}
+	 
+	public int getError() {
+		return error; 
+	}
 	
 	@Override 
 	public String toString(){

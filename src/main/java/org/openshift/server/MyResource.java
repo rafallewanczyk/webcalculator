@@ -28,9 +28,14 @@ public class MyResource {
 	@Produces("application/json")
 	public Calculation test(Calculation calc) {
 		DoubleEvaluator evaluator = new DoubleEvaluator(); 
-		calc.setResult(evaluator.evaluate(calc.getCommand()));
-		calc.setCommand(String.valueOf(calc.getResult()));
-		System.out.println(calc.getCommand() + " = " + calc.getResult());
+		try {
+			calc.setResult(evaluator.evaluate(calc.getCommand()));
+			calc.setCommand(String.valueOf(calc.getResult()));
+			System.out.println(calc.getCommand() + " = " + calc.getResult());
+		} catch (Exception e){
+			calc.setError(1);
+			System.out.println("Blad skladniowy"); 
+		}
 		return calc; 
 		
 	}
