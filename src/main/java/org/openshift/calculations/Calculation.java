@@ -6,8 +6,8 @@ public class Calculation {
 	private String command; 
 	private double result; 
 	
-	public Calculation(int Error, String Command, double Result) {
-		error = Error; 
+	public Calculation(int error, String Command, double Result) {
+		this.error = error; 
 		command = Command; 
 		result = Result; 
 	}
